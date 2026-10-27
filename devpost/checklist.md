@@ -49,7 +49,7 @@ Build mode: fast
   Learner check: Close the intro and watch the tacks fly in, then switch seasons several times quickly. Say whether the motion feels playful and whether tacks pin at different moments.
   Commit: `Add staggered tack fly-in animation`
 
-- [ ] **5. Hover a tack to preview, click to lock, and browse items**
+- [x] **5. Hover a tack to preview, click to lock, and browse items**
   Becomes usable: Hovering a tack shows a white outlined card with picture, title, description and a dotted line; clicking locks it open and activates the tack; the next button browses multi-item tacks; clicking outside closes it; a broken picture shows a drawn placeholder.
   Why now: This is the main interaction and uses `useEffect` and a custom hook, the learner's stated weak spot. It builds on tacks that already exist, with starter content in place.
   PRD ref: `prd.md > Hover Card and Click-to-Lock`, `prd.md > The Core Journey` (steps 3-5), `prd.md > States and Boundaries`
@@ -94,3 +94,4 @@ Activity mode: [live app and editor, explicit static fallback, focused alternati
 - Spring decor is grass instead of rain and wind; winter is slow rotating snowflakes; title is a small top-left logo with centered blurb and buttons; season colors are faded pastels — learner feedback at the early checkpoint after seeing the first version of slice 2.
 - Spring touch is now four standing trees (two pink blossoming, two green leafing) plus low dense grass; winter has no wind gusts, just slow straight-falling snowflakes — learner feedback on the early checkpoint. Build mode switched to fast after slice 2.
 - Slice 3 used the Wikimedia Commons "Canada blank map.svg" (public/images/canada-map.svg) as the map; trees in spring moved to pairs at either side of the board so the board doesn't hide them; intro pop-up got a z-index so the board can't cover it — discovered while verifying the board.
+- MapBoard no longer holds a `useRef` and the card is placed with percentage coordinates instead; the ref lives in `TackCard` for `useClickOutside` — the card could be positioned from the tack's percentages alone. Tacks sit above open cards so a card never blocks the tacks around it.

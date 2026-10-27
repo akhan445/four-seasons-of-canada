@@ -4,15 +4,18 @@ import type { Tack as TackData } from '../types'
 type Props = {
   tack: TackData
   index: number // position in the season's list; sets when this tack pins itself
+  activated: boolean // true while this tack's card is locked open
+  onHover: (id: string | null) => void
+  onClick: (id: string) => void
 }
 
-function Tack({ tack, index }: Props) {
+function Tack({ tack, index, activated, onHover, onClick }: Props) {
   // Tacks in the left half of the map fly in from the left of the page, the rest from the right.
   const fromX = tack.x < 50 ? '-60vw' : '60vw'
 
   return (
     <button
-      className="tack"
+      className={activated ? 'tack activated' : 'tack'}
       style={
         {
           left: `${tack.x}%`,
@@ -22,6 +25,9 @@ function Tack({ tack, index }: Props) {
         } as CSSProperties
       }
       aria-label={tack.items[0].title}
+      onMouseEnter={() => onHover(tack.id)}
+      onMouseLeave={() => onHover(null)}
+      onClick={() => onClick(tack.id)}
     >
       <svg viewBox="0 0 24 32" width="100%" height="100%">
         <path d="M12 16 L12 31" stroke="#777" strokeWidth="2" strokeLinecap="round" />

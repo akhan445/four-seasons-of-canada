@@ -16,6 +16,12 @@ export const tacks: Tack[] = [
           'In late winter and early spring, sap runs in Quebec and Ontario maple trees. Most of the world’s maple syrup comes from Quebec.',
         image: '/images/maple-syrup.jpg',
       },
+      {
+        title: 'Sugar shacks',
+        description:
+          'Families gather at cabanes à sucre to eat pancakes, pour syrup on snow and make maple taffy.',
+        image: '/images/sugar-shack.jpg',
+      },
     ],
   },
   {
@@ -160,6 +166,12 @@ export const tacks: Tack[] = [
           'Sugar maples across Ontario and Quebec turn red, orange and yellow in late September and October.',
         image: '/images/fall-colours.jpg',
       },
+      {
+        title: 'Algonquin Park',
+        description:
+          'Thousands of visitors drive to Algonquin Park each October to see its forests blaze with colour.',
+        image: '/images/algonquin.jpg',
+      },
     ],
   },
   {
@@ -259,6 +271,12 @@ export const tacks: Tack[] = [
         description:
           'These white owls spend winter on the open Arctic tundra and sometimes fly south over farm fields.',
         image: '/images/snowy-owl.jpg',
+      },
+      {
+        title: 'Arctic fox',
+        description:
+          'The Arctic fox’s thick white winter coat keeps it warm and hides it in the snow.',
+        image: '/images/arctic-fox.jpg',
       },
     ],
   },
