@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  overflow-x: hidden; /* tacks start off-screen while flying in */
   min-height: 100vh;
   font-family: 'Patrick Hand', cursive;
   font-size: 1.25rem;

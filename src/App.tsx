@@ -26,7 +26,8 @@ function App() {
           <SeasonButtons active={season} onSelect={setSeason} />
         </div>
       </header>
-      <MapBoard season={season} />
+      {/* The board mounts when the intro closes, which starts the tack fly-in */}
+      {!introOpen && <MapBoard season={season} />}
       {introOpen && <IntroModal onClose={() => setIntroOpen(false)} />}
     </>
   )

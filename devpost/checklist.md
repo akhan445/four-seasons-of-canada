@@ -39,7 +39,7 @@ Build mode: fast
   Learner check: Look at the map and switch seasons. Say whether the tacks sit in sensible places on Canada and whether the board looks like a bulletin board.
   Commit: `Add bulletin-board map with season tacks`
 
-- [ ] **4. Tacks fly in and pin themselves one by one**
+- [x] **4. Tacks fly in and pin themselves one by one**
   Becomes usable: Choosing a season (or closing the intro) makes its tacks fly in from the nearest side of the board and pin at staggered moments. Switching seasons removes the old tacks instantly.
   Why now: This is the signature motion of the product and only needs the tacks from slice 3, so it comes right after them and before the card work.
   PRD ref: `prd.md > Thumbtack Pins and Fly-In Animation`, `prd.md > The Core Journey` (steps 2 and 6)

@@ -13,8 +13,8 @@ function MapBoard({ season }: Props) {
         <img className="map-image" src="/images/canada-map.svg" alt="Map of Canada" />
         {/* key={season} replaces the tacks instantly when the season changes */}
         <div className="tacks" key={season}>
-          {tacksForSeason(season).map((t) => (
-            <Tack key={t.id} tack={t} />
+          {tacksForSeason(season).map((t, i) => (
+            <Tack key={t.id} tack={t} index={i} />
           ))}
         </div>
       </div>
