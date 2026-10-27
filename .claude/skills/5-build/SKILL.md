@@ -1,6 +1,6 @@
 ---
 name: 5-build
-description: Turn the approved plan into ordered working build steps, then build the app step by step — verifying and committing each one — in learn mode or fast mode. Use after the planning skills, and again whenever a build session was interrupted.
+description: Turn the approved plan into ordered working build steps, then build the app step by step — verifying and committing each one — in learn mode or fast mode. Use after the planning skills, again whenever a build session was interrupted, and to add each later round of features.
 ---
 
 # 5-build — Build Your App
@@ -11,7 +11,7 @@ You are a build strategist for about ten minutes and an executor after that. The
 
 ## Learner-Led Rules
 
-Keep this learning experience learner-led and proof-of-concept sized. Default to open-ended questions one at a time, without suggested answers or multiple-choice tools; explicit consent and sign-off can be yes/no. Honor saved preferences for concise explanations or small batches of related questions. Learners new to planning first retain guided support unless they request otherwise. Calibrate to their coding experience. If they say "just do it for me," explain: "That's fine for playing around, but on projects you're serious about, active, intentional collaboration is more useful. To build those skills, you need to practice making the decisions." Then ask a smaller concrete question, don't take over. This concerns project decisions, not delegating implementation: you write the code in fast mode and in learn mode's default style. In learn mode's junior-dev and pair styles, the learner writes the parts you agree on (see **Choose the Build Mode**). The first pass through the checklist stays proof-of-concept sized; after the final review, the learner may keep building toward an MVP (see **Keep Building Toward an MVP**).
+Keep this learning experience learner-led and proof-of-concept sized. Default to open-ended questions one at a time, without suggested answers or multiple-choice tools; explicit consent and sign-off can be yes/no. Honor saved preferences for concise explanations or small batches of related questions. Learners new to planning first retain guided support unless they request otherwise. Calibrate to their coding experience. If they say "just do it for me," explain: "That's fine for playing around, but on projects you're serious about, active, intentional collaboration is more useful. To build those skills, you need to practice making the decisions." Then ask a smaller concrete question, don't take over. This concerns project decisions, not delegating implementation: you write the code in fast mode and in learn mode's default style. In learn mode's junior-dev and pair styles, the learner writes the parts you agree on (see **Choose the Build Mode**). The first pass through the checklist stays proof-of-concept sized; after the final review, the learner may keep building toward an MVP (see **Build the Next Round**).
 
 ## Where Are We
 
@@ -24,7 +24,8 @@ Before anything else, look at the project's `specs/`. Never infer progress from 
    - No `checklist.md` → this is a first visit. Go to **Git**, then **Plan the Build**.
    - `checklist.md` exists, `status: draft` → the plan was written but never approved. Go to **The Gut Check**.
    - `checklist.md` `status: approved`, unchecked slices remain → resume. Go to **Choose the Build Mode**, then the loop, starting at the first unchecked slice.
-   - Every slice checked → go to **When the Checklist Is Complete**. The build is not finished until the saved **Final Review** and **Code Tour and App Map** are complete.
+   - Every slice checked, but **Final Review** or **Code Tour and App Map** unfinished → go to **When the Checklist Is Complete**.
+   - Every slice checked and both complete → the current round is done. Say which round that was (see **Which Round Is This**) and ask once: "What do you want to build next, or are you done for now?" A feature, fix or idea → go to **Build the Next Round**. Done, or unsure → hand off to `6-ship`.
 
 ## Git
 
@@ -162,16 +163,20 @@ Checked slices mean implementation is ready for final review—not that the lear
 
 Then complete **The Learning Wrap-Up** before handing off.
 
-## Keep Building Toward an MVP
+## Which Round Is This
 
-Optional, and entered from `6-ship` when the learner chooses to keep developing (or directly, if they ask during the build). The first pass proves the kernel; an MVP is the smallest version someone could actually use for real. Each extra round is a short plan-then-build cycle, so the plan-first habit continues instead of turning into open-ended prompting.
+The files say, so nothing extra is tracked. Under `## Slices`, each round is a `### Round N: title` subheading above its slices; slices before the first heading (or under `### Round 1`) are Round 1, the proof of concept. The current round is the highest N, and its state is its slices' boxes. The same round is also named under `## Revisions` and visible in `git log`. If these disagree, trust the checklist and say what you found. Never ask the learner what round it is.
 
-1. **Pick the round.** Ask what they want next. Start from `scope.md > Later` and `prd.md > Deferred From the POC`; anything under `scope.md > Explicitly Cut` needs its reason revisited first. Keep a round to one or two behaviors.
+## Build the Next Round
+
+Optional, and entered whenever the learner wants more: from the routing above, from `6-ship` when they choose to keep developing, or because they simply say "next feature" or "let's add X" in a new conversation. The first pass proves the kernel; later rounds grow it toward an MVP, the smallest version someone could actually use for real. Each round is a short plan-then-build cycle, so the plan-first habit continues instead of turning into open-ended prompting, and it is the same whether it's Round 2 or Round 7.
+
+1. **Pick the round.** Ask "What do you want to build next?" if they haven't said. Start from `scope.md > Later` and `prd.md > Deferred From the POC`; anything under `scope.md > Explicitly Cut` needs its reason revisited first. Keep a round to one or two behaviors.
 2. **Update the plan, lightly.** With their agreement, move the chosen items into `scope.md > The POC Boundary` and `prd.md > What We're Building` with acceptance criteria, and add any spec headings the new slices will cite. Note each move under `## Revisions`. Don't rerun the planning skills, but a change to the kernel or the stack still needs a real discussion.
-3. **Plan the round.** Show the new slices in the terminal, in the same format and sequencing rules as **Plan the Build**, and ask once: "Does this look good, or would you change anything?" Only after they approve, append them to the end of `## Slices` with every field, continuing the numbering, and add a hands-on checkpoint for the round. Uncheck the **Final Review** completion box so the round gets its own review. The learning wrap-up is not repeated unless they want to refresh the app map. The checklist stays `status: approved`.
-4. **Build.** Return to **The Loop** in the recorded mode. When every slice is checked again, come back to **When the Checklist Is Complete**: kick the tires on the new behavior and revise, then hand off to `6-ship` again.
+3. **Plan the round.** Show the new slices in the terminal, in the same format and sequencing rules as **Plan the Build**, and ask once: "Does this look good, or would you change anything?" Only after they approve, append them to the end of `## Slices` under a new `### Round N: title` heading (if the checklist has no round headings yet, first add `### Round 1: Proof of concept` above slice 1), with every field, continuing the slice numbering, and add a hands-on checkpoint for the round. Uncheck the **Final Review** completion box so the round gets its own review. The learning wrap-up is not repeated unless they want to refresh the app map. The checklist stays `status: approved`.
+4. **Build.** Return to **The Loop** in the recorded mode. When every slice is checked again, come back to **When the Checklist Is Complete**: kick the tires on the new behavior and revise, then ask what's next again, or hand off to `6-ship`.
 
-Stop when they say the MVP is done, they're out of time, or a round would change the kernel. If they have a deadline, warn when a round puts it at risk: a smaller working app beats a bigger broken one.
+Stop when they say they're done, they're out of time, or a round would change the kernel. If they have a deadline, warn when a round puts it at risk: a smaller working app beats a bigger broken one.
 
 ## The Learning Wrap-Up
 
@@ -185,7 +190,7 @@ Reveal `specs/app-map.html` as a compact take-home guide. Offer one optional tra
 
 ## Hand Off
 
-Say: "Congratulations—your proof of concept is built, tested, and reviewed, and your learning wrap-up and app map are ready. You've completed `5-build`. Next is `6-ship`, where you decide what happens next: keep building, publish it on GitHub, prepare a submission, or something else." Say "app" instead of "proof of concept" if they kept building toward an MVP. A fresh conversation is fine; `specs/` carries everything.
+At the end of any round, say: "Congratulations—your proof of concept is built, tested, and reviewed, and your learning wrap-up and app map are ready. You've completed `5-build`. Next is `6-ship`, where you decide what happens next: keep building, publish it on GitHub, prepare a submission, or something else." Say "app" instead of "proof of concept" if they kept building toward an MVP. A fresh conversation is fine; `specs/` carries everything.
 
 ## Conversation Style
 

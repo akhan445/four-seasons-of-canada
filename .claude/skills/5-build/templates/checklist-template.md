@@ -25,6 +25,8 @@ Build mode: [learn (default), learn (junior-dev), learn (pair), or fast — reco
 
 ## Slices
 
+### Round 1: Proof of concept
+
 - [ ] **1. You can type an entry and see it appear in the list**
   Becomes usable: A running app where an entry typed into the form shows up on screen in the list. Nothing persists yet.
   Why now: Proves the whole path end to end on the first slice — scaffold, form, state, render — so every later slice has somewhere to land.

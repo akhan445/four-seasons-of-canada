@@ -21,7 +21,7 @@ Before anything else, inspect the project's `specs/`; files, not conversation me
 
 ## Before You Start
 
-Read scope's kernel and PoC boundary, the PRD's core journey, checklist revisions and final review/learning-wrap-up record, the spec's run instructions, and the learner profile for vocabulary, support needs and **Ship Plan** (their earlier hope, not a commitment).
+Read scope's kernel and PoC boundary, the PRD's core journey, checklist revisions and final review/learning-wrap-up record, the spec's run instructions, and the learner profile for vocabulary, support needs and **Ship Plan** (their earlier hope, not a commitment; older profiles call it **Submission Plan**, so treat that the same way).
 
 ## 1. Confirm It's Ready
 
@@ -33,7 +33,7 @@ Fix remaining critical breakage and verify it, recording any changed plan and co
 
 Ask once, open-ended: "Your proof of concept works. What would you like to do with it?" Don't present a menu; if they're unsure, explain the possibilities in a sentence each, then ask again. Record the answer under **Ship Plan** in `specs/learner-profile.md`. They can combine paths or return later.
 
-- **Keep building** → hand back to `5-build`, **Keep Building Toward an MVP**: pick a round from `scope.md > Later` and `prd.md > Deferred From the POC`, plan it lightly, build it in their recorded mode, then return here. Stop; nothing else here applies yet.
+- **Keep building** → ask "What do you want to build next?" and carry on in this same conversation: read `5-build/SKILL.md`, follow **Which Round Is This** and **Build the Next Round**, and use the build mode already recorded in the checklist. When the round is verified and reviewed, come back to this decision. Stop here; nothing else below applies yet. They can also start a later round any time by invoking `5-build` or saying what they want next.
 - **Publish on GitHub** → do **3** (repository), then **4** (demo) if they want it, then **7**.
 - **Prepare a hackathon submission** (for example Devpost) → do **3**, **4** and **5**, then **7**.
 - **Something else** (deploy it, share it with a few people, hand it to a teammate, leave it) → ask what they want, do only what that needs, and apply the privacy and secrets checks in **3** to anything that becomes public.
