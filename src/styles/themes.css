@@ -7,7 +7,7 @@
 
 /* One solid background per season; the rest of the look stays constant. */
 [data-season='spring'] {
-  --bg: #a8d8d0;
+  --bg: #c6e9e2;
   --accent: #f6c9d6;
   --text: #2f4a47;
 }

@@ -5,7 +5,7 @@ status: approved
 
 # Build Checklist
 
-Build mode: learn (default)
+Build mode: fast
 
 ## Slices
 
@@ -19,8 +19,8 @@ Build mode: learn (default)
   Learner check: Run `npm run dev`, open the address, close the pop-up, and click each season button. Say whether the colors and handwritten look feel right.
   Commit: `Add season buttons, intro pop-up and per-season themes`
 
-- [ ] **2. Each season has its own animated touch**
-  Becomes usable: Switching seasons now also brings rain and wind (spring), flowers (summer), maple leaves from a few border spots (autumn), and snowfall (winter).
+- [x] **2. Each season has its own animated touch**
+  Becomes usable: Switching seasons now also brings trees and grass (spring), flowers (summer), maple leaves from a few border spots (autumn), and falling snowflakes (winter).
   Why now: This is the "oh, that's cool" beat of the kernel. Doing it early shows whether the transformation really feels like each season before the rest is built around it.
   PRD ref: `prd.md > Look and Feel`, `prd.md > Season Selection and Theme`
   Spec ref: `spec.md > Components` (SeasonDecor), `spec.md > Look and Feel`, `animations.css` in `spec.md > File Structure`
@@ -71,7 +71,7 @@ Build mode: learn (default)
 
 ## Hands-on Checkpoints
 
-- [ ] Early usable behavior explored — after slice 2, when the page changes and animates per season (the kernel), before the map and cards are built
+- [x] Early usable behavior explored — after slice 2, when the page changes and animates per season (the kernel), before the map and cards are built
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
@@ -91,4 +91,5 @@ Reflection: [offered/answered/declined/already covered — personal answer belon
 Activity mode: [live app and editor, explicit static fallback, focused alternative, prior practice, or recap]
 
 ## Revisions
-
+- Spring decor is grass instead of rain and wind; winter is slow rotating snowflakes; title is a small top-left logo with centered blurb and buttons; season colors are faded pastels — learner feedback at the early checkpoint after seeing the first version of slice 2.
+- Spring touch is now four standing trees (two pink blossoming, two green leafing) plus low dense grass; winter has no wind gusts, just slow straight-falling snowflakes — learner feedback on the early checkpoint. Build mode switched to fast after slice 2.

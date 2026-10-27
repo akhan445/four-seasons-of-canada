@@ -13,22 +13,32 @@ body {
 }
 
 .page-header {
-  padding: 1.5rem 2rem;
+  position: relative;
+  z-index: 1;
+  padding: 1rem 1.5rem;
 }
 
+/* The title is a small logo in the top-left corner */
 .page-header h1 {
   margin: 0;
-  font-size: 2.75rem;
+  font-size: 1.5rem;
   font-weight: normal;
 }
 
+/* Blurb and buttons sit centered below it */
+.page-intro {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
 .blurb {
-  margin: 0.5rem 0 1.25rem;
+  margin: 0 auto 1.25rem;
   max-width: 36rem;
 }
 
 .season-buttons {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 

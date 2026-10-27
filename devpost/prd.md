@@ -22,9 +22,9 @@ Source: `scope.md > The Core Loop`, `scope.md > The Unique Kernel`, `scope.md > 
 ## Screens and Layout
 One page only; nothing navigates away. Season buttons swap what the page shows. Desktop browser with a mouse; no touch or phone layout.
 
-- **Top left:** the page title, "Four Seasons of Canada".
-- **Above the buttons:** a short blurb inviting people to explore Canada and see what makes it unique.
-- **Above the map:** four large season buttons (spring, summer, autumn, winter), with the current season selected on load.
+- **Top left:** the page title, "Four Seasons of Canada", small like a logo.
+- **Centered, above the buttons:** a short blurb inviting people to explore Canada and see what makes it unique.
+- **Centered, above the map:** four large season buttons (spring, summer, autumn, winter), with the current season selected on load.
 - **Center:** one map of the whole of Canada that fills most of the page, styled like a bulletin board.
 - **Overlay:** the intro pop-up on first load, with an X to close.
 - **Card (on demand):** a white, outlined card beside the hovered or clicked tack, joined by a dotted line.
@@ -33,10 +33,10 @@ One page only; nothing navigates away. Season buttons swap what the page shows. 
 Simple and uncluttered; show few details at once. The background is a single solid color per season. The text, buttons, and title share one playful, handwritten-looking style across the whole page. Only colors, drawings, and animations change per season. Nothing should look serious.
 
 Each season takes the colors, mood, and drawing style of one picture book:
-- **Spring:** *Step Inside a Fairy Tale*. Animated touch: light showers and wind.
+- **Spring:** *Step Inside a Fairy Tale*. A light greenish teal. Animated touch: grass sprouting and swaying, with two blossoming pink trees and two leafing green trees (changed from showers and wind).
 - **Summer:** *Clifford*. Animated touch: flowers.
 - **Autumn:** *Have You Seen My Cat?*. Animated touch: maple leaves popping out from a few spots around the map border (not the whole border), loosely scattered.
-- **Winter:** *The Polar Express*. Animated touch: snowfall.
+- **Winter:** *The Polar Express*. Animated touch: slow snowflakes falling to the ground at different angles. A whitish gray background.
 
 (`scope.md > Inspiration & Identity`)
 

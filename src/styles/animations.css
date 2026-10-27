@@ -1,0 +1,143 @@
+/* Per-season animated touches. Shapes are placed by CSS variables set in SeasonDecor. */
+
+.decor {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Spring: grass sprouts up from the bottom, then sways in the breeze */
+.grass {
+  position: absolute;
+  bottom: -4px;
+  left: var(--x);
+  width: var(--size);
+  height: var(--height);
+  transform-origin: 50% 100%;
+  animation:
+    grow 1.4s ease-out var(--grow) both,
+    sway 4s ease-in-out var(--delay) infinite alternate;
+}
+
+@keyframes grow {
+  from {
+    scale: 1 0;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+/* Spring: trees stand in place; their blossoms or leaves grow in */
+.tree {
+  position: absolute;
+  bottom: 0;
+  left: var(--x);
+  height: var(--h);
+  overflow: visible;
+  scale: var(--flip) 1;
+}
+
+.blossom {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bloom 1.2s ease-out var(--t) backwards;
+}
+
+@keyframes bloom {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+/* Summer: flowers swaying along the bottom */
+.flower {
+  position: absolute;
+  bottom: -4px;
+  left: var(--x);
+  width: var(--size);
+  transform-origin: 50% 100%;
+  animation: sway 3s ease-in-out var(--delay) infinite alternate;
+}
+
+@keyframes sway {
+  from {
+    transform: rotate(-6deg);
+  }
+  to {
+    transform: rotate(6deg);
+  }
+}
+
+/* Autumn: leaves pop out of a few border spots and drift across */
+.leaf {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  opacity: 0;
+  animation: leaf var(--dur) ease-in-out var(--delay) infinite;
+}
+
+@keyframes leaf {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0.3);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(calc(var(--dx) * 0.1), calc(var(--dy) * 0.1)) rotate(40deg) scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--spin)) scale(1);
+  }
+}
+
+/* Winter: snowflakes fall to the ground at their own angles and fade out there */
+.snowflake {
+  position: absolute;
+  top: -8%;
+  left: var(--x);
+  width: var(--size);
+  height: var(--size);
+  opacity: 0;
+  animation: snow var(--dur) linear var(--delay) infinite;
+}
+
+@keyframes snow {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  6% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--drift), 106vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .grass,
+  .blossom,
+  .flower,
+  .leaf,
+  .snowflake {
+    animation-duration: 0s;
+  }
+}
