@@ -1,0 +1,31 @@
+/* Fallback until data-season is set */
+:root {
+  --bg: #eee;
+  --accent: #ccc;
+  --text: #222;
+}
+
+/* One solid background per season; the rest of the look stays constant. */
+[data-season='spring'] {
+  --bg: #a8d8d0;
+  --accent: #f6c9d6;
+  --text: #2f4a47;
+}
+
+[data-season='summer'] {
+  --bg: #f7e8a4;
+  --accent: #f4b9a0;
+  --text: #4a3f1a;
+}
+
+[data-season='autumn'] {
+  --bg: #eebb8c;
+  --accent: #e08a52;
+  --text: #4a2812;
+}
+
+[data-season='winter'] {
+  --bg: #e4e7ea;
+  --accent: #b9c7d6;
+  --text: #34404d;
+}

@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.25rem;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s;
+}
+
+.page-header {
+  padding: 1.5rem 2rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2.75rem;
+  font-weight: normal;
+}
+
+.blurb {
+  margin: 0.5rem 0 1.25rem;
+  max-width: 36rem;
+}
+
+.season-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.season-button {
+  font: inherit;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  padding: 0.6rem 1.8rem;
+  border: 3px solid var(--text);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.season-button.active {
+  background: var(--accent);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal {
+  position: relative;
+  max-width: 28rem;
+  padding: 2rem;
+  background: #fff;
+  color: #333;
+  border: 3px solid #333;
+  border-radius: 1rem;
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font: inherit;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
