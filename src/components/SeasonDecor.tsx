@@ -118,15 +118,15 @@ const FLOWER_COLORS = ['#f26b8a', '#fff', '#ff9f43', '#c77dff']
 function Flowers() {
   return (
     <>
-      {Array.from({ length: 9 }, (_, i) => (
+      {Array.from({ length: 26 }, (_, i) => (
         <svg
           key={i}
           className="flower"
           viewBox="-20 -20 40 70"
           style={vars({
-            '--x': `${spread(i, 9)}%`,
-            '--delay': `${-pick(i, 0, 3)}s`,
-            '--size': `${pick(i + 5, 50, 90)}px`,
+            '--x': `${spread(i, 26)}%`,
+            '--delay': `${-pick(i * 3 + 1, 0, 3)}s`,
+            '--size': `${pick(i + 5, 32, 52)}px`,
             '--petal': FLOWER_COLORS[i % FLOWER_COLORS.length],
           })}
         >

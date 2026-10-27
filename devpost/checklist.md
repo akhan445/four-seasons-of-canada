@@ -59,7 +59,7 @@ Build mode: fast
   Learner check: Hover over a tack, click it, move the mouse away, press next, then click outside the card. Say whether it behaves the way you pictured it, including near the edges of the map.
   Commit: `Add hover cards, click-to-lock and item browsing`
 
-- [ ] **6. Every season has at least 5 real tacks with pictures and descriptions**
+- [x] **6. Every season has at least 5 real tacks with pictures and descriptions**
   Becomes usable: 20 or more tacks across the four seasons (at least 5 each), each marking something unique to Canada in that season with a title, short description and picture, plus a README that says how to run it.
   Why now: Content is last because it needs no new mechanics, and by now the structure that displays it has been checked by the learner.
   PRD ref: `prd.md > Thumbtack Pins and Fly-In Animation`, `prd.md > What We're Building`, `prd.md > Open Questions`
@@ -95,3 +95,4 @@ Activity mode: [live app and editor, explicit static fallback, focused alternati
 - Spring touch is now four standing trees (two pink blossoming, two green leafing) plus low dense grass; winter has no wind gusts, just slow straight-falling snowflakes — learner feedback on the early checkpoint. Build mode switched to fast after slice 2.
 - Slice 3 used the Wikimedia Commons "Canada blank map.svg" (public/images/canada-map.svg) as the map; trees in spring moved to pairs at either side of the board so the board doesn't hide them; intro pop-up got a z-index so the board can't cover it — discovered while verifying the board.
 - MapBoard no longer holds a `useRef` and the card is placed with percentage coordinates instead; the ref lives in `TackCard` for `useClickOutside` — the card could be positioned from the tack's percentages alone. Tacks sit above open cards so a card never blocks the tacks around it.
+- Layout: title centered with tighter spacing, wider/shorter buttons, board sized to float higher with ~6rem free below so grass and flowers show; cards now sit in front of the tacks; summer has 26 smaller flowers — learner feedback before slice 6. Content list kept as drafted (20 tacks, 5 per season, 3 with a second item); pictures are real photos from Wikimedia Commons (credited in public/images/SOURCES.md) instead of hand-sourced ones.
