@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four Seasons of Canada: App Map</title>
+<style>
+  :root { --bg:#fbf8f1; --card:#fff; --text:#2b2b2b; --muted:#666; --line:#d8d2c4; --accent:#2f7d6d; --code:#f1ede2; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#1d2022; --card:#272b2e; --text:#ececec; --muted:#a6a6a6; --line:#40464a; --accent:#6fd0bc; --code:#31363a; }
+  }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.55 system-ui, sans-serif; }
+  main { max-width:50rem; margin:0 auto; padding:1.5rem 1rem 3rem; }
+  h1 { margin:0 0 .25rem; } h2 { margin-top:2rem; border-bottom:2px solid var(--line); padding-bottom:.25rem; }
+  .sub { color:var(--muted); margin-top:0; }
+  code { background:var(--code); padding:.1rem .3rem; border-radius:4px; font-size:.92em; }
+  pre { background:var(--code); padding:.75rem 1rem; border-radius:6px; overflow-x:auto; }
+  .stop { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.75rem 1rem; margin:.75rem 0; }
+  .stop h3 { margin:.1rem 0 .3rem; }
+  table { border-collapse:collapse; width:100%; background:var(--card); }
+  th, td { border:1px solid var(--line); padding:.4rem .6rem; text-align:left; vertical-align:top; }
+  summary { cursor:pointer; color:var(--accent); font-weight:600; }
+  svg { max-width:100%; height:auto; }
+  svg text { fill:var(--text); font:13px system-ui, sans-serif; }
+  svg .box { fill:var(--card); stroke:var(--accent); stroke-width:2; }
+  svg .arrow { stroke:var(--accent); stroke-width:2; fill:none; }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Four Seasons of Canada: App Map</h1>
+  <p class="sub">A take-home guide to how the app is built. It is a snapshot of source commit <code>60e190d</code> and can drift as the code changes.</p>
+
+  <h2>What the app is</h2>
+  <p>One web page that runs entirely in the browser (no server, no saved data). Choosing a season changes the whole page's look, and a bulletin-board map of Canada shows thumbtacks for things unique to that season. Hovering or clicking a tack opens a card.</p>
+  <ul>
+    <li><strong>State</strong> lives in <code>App</code> (the current season, whether the intro is open, which tack is hovered or locked, which item the card shows).</li>
+    <li><strong>Components</strong> draw the screen from that state: season buttons, intro pop-up, map board, tacks, tack card, and the season decorations.</li>
+    <li><strong>One data file</strong> holds all the content; <strong>CSS</strong> does the looks and motion.</li>
+  </ul>
+
+  <h2>One action, followed through</h2>
+  <p>Click a tack, move the mouse away, then click outside the card.</p>
+  <svg viewBox="0 0 700 170" role="img" aria-label="Diagram: Tack reports a click, App stores lockedTackId, MapBoard shows TackCard, useClickOutside clears it">
+    <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f7d6d"/></marker></defs>
+    <rect class="box" x="5" y="15" width="150" height="55" rx="8"/><text x="80" y="38" text-anchor="middle">Tack.tsx</text><text x="80" y="56" text-anchor="middle">onClick(tack.id)</text>
+    <rect class="box" x="185" y="15" width="150" height="55" rx="8"/><text x="260" y="38" text-anchor="middle">App.tsx</text><text x="260" y="56" text-anchor="middle">setLockedTackId(id)</text>
+    <rect class="box" x="365" y="15" width="150" height="55" rx="8"/><text x="440" y="38" text-anchor="middle">MapBoard.tsx</text><text x="440" y="56" text-anchor="middle">draws TackCard</text>
+    <rect class="box" x="545" y="15" width="150" height="55" rx="8"/><text x="620" y="38" text-anchor="middle">Card stays open</text><text x="620" y="56" text-anchor="middle">tack is "activated"</text>
+    <path class="arrow" d="M155 42 H183" marker-end="url(#a)"/><path class="arrow" d="M335 42 H363" marker-end="url(#a)"/><path class="arrow" d="M515 42 H543" marker-end="url(#a)"/>
+    <rect class="box" x="185" y="105" width="330" height="55" rx="8"/><text x="350" y="128" text-anchor="middle">useClickOutside.ts: a mousedown outside the card</text><text x="350" y="146" text-anchor="middle">calls closeCard, which sets lockedTackId to null</text>
+    <path class="arrow" d="M620 70 V132 H517" marker-end="url(#a)"/><path class="arrow" d="M185 132 H165 Q 165 100 250 72" marker-end="url(#a)"/>
+  </svg>
+
+  <h2>A route through the code (reference, not toured)</h2>
+  <div class="stop"><h3>1. The click: <code>src/components/Tack.tsx</code></h3>
+    Search for <code>onClick={() =&gt; onClick(tack.id)}</code>. The tack does not know about cards; it only reports which tack was clicked.</div>
+  <div class="stop"><h3>2. The memory: <code>src/App.tsx</code></h3>
+    Search for <code>clickTack</code>, which calls <code>setLockedTackId(id)</code>, and <code>closeCard</code>, which sets it back to <code>null</code>. This one piece of state is why the card stays open after the mouse leaves.</div>
+  <div class="stop"><h3>3. The listener: <code>src/hooks/useClickOutside.ts</code></h3>
+    The <code>useEffect</code> adds a <code>mousedown</code> listener to the whole page, and the function it returns removes it. Without that cleanup, old listeners would pile up each time a card opens. <code>TackCard.tsx</code> calls this hook with <code>useClickOutside(cardRef, onClose, locked)</code>.</div>
+
+  <h2>To change this, start here</h2>
+  <table>
+    <tr><th>I want to&hellip;</th><th>Start in</th></tr>
+    <tr><td>Add or edit a tack, its text or picture</td><td><code>src/data/seasons.ts</code> (the <code>tacks</code> array), with pictures in <code>public/images/</code></td></tr>
+    <tr><td>Move a tack on the map</td><td>its <code>x</code> and <code>y</code> (percent of the map) in <code>seasons.ts</code></td></tr>
+    <tr><td>Change a season's colors</td><td><code>src/styles/themes.css</code> (the <code>[data-season='...']</code> rules)</td></tr>
+    <tr><td>Change falling snow, leaves, grass, trees or flowers</td><td><code>src/components/SeasonDecor.tsx</code> and <code>src/styles/animations.css</code></td></tr>
+    <tr><td>Change how tacks fly in</td><td><code>src/styles/animations.css</code> (<code>@keyframes fly</code>) and the <code>--delay</code> in <code>Tack.tsx</code></td></tr>
+    <tr><td>Change the card's looks</td><td><code>.tack-card</code> in <code>src/styles/global.css</code> and <code>TackCard.tsx</code></td></tr>
+    <tr><td>Change how the season is set on the page</td><td>the <code>useEffect</code> that sets <code>dataset.season</code> in <code>src/App.tsx</code></td></tr>
+  </table>
+
+  <h2>A practice to reuse</h2>
+  <p><strong>Write the expected behavior as something you can observe, then verify it by actually running it.</strong></p>
+  <ul>
+    <li><strong>Decision:</strong> <code>devpost/prd.md</code> states each behavior as a checkable result, such as "Clicking outside closes the card."</li>
+    <li><strong>Evidence:</strong> when the map board was added, running the page and trying to close the intro pop-up showed the board was covering it. That bug is recorded in <code>devpost/checklist.md</code> under <em>Revisions</em>, and a one-line stacking fix resolved it. Reading the code alone had not shown it.</li>
+    <li><strong>Reuse:</strong> on any project, turn each requirement into "when I do X, I should see Y," and run exactly that before moving on.</li>
+  </ul>
+
+  <h2>Run it again</h2>
+  <pre>npm install
+npm run dev</pre>
+  <p>Then open the address it prints (usually <code>http://localhost:5173</code>). More detail is in <code>README.md</code>. Picture credits are in <code>public/images/SOURCES.md</code>.</p>
+
+  <details>
+    <summary>Where each piece of state lives</summary>
+    <table>
+      <tr><th>State (in <code>App.tsx</code>)</th><th>Starts as</th><th>Changes when</th></tr>
+      <tr><td><code>season</code></td><td>today's season</td><td>a season button is clicked</td></tr>
+      <tr><td><code>introOpen</code></td><td><code>true</code></td><td>the X is clicked</td></tr>
+      <tr><td><code>hoveredTackId</code></td><td>none</td><td>the mouse enters or leaves a tack</td></tr>
+      <tr><td><code>lockedTackId</code></td><td>none</td><td>a tack is clicked, an outside click, or a season change</td></tr>
+      <tr><td><code>itemIndex</code></td><td><code>0</code></td><td>Next is clicked; reset when a different tack opens or the season changes</td></tr>
+    </table>
+  </details>
+</main>
+</body>
+</html>
