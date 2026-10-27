@@ -83,10 +83,10 @@ Build mode: fast
 
 - [x] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
 - [x] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
-- [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
+- [x] `specs/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
 
 Activity and evidence: Guided route proposed (click a tack, lock, click outside) and the learner chose to skip it, so this is a recap, not hands-on practice. Evidence connected: the stacking bug (board covering the intro pop-up) found by running the page, recorded under Revisions.
-Route and stops: Reference-only route in `devpost/app-map.html`: `src/components/Tack.tsx` (onClick), `src/App.tsx` (clickTack, closeCard), `src/hooks/useClickOutside.ts` (useEffect cleanup). Not toured.
+Route and stops: Reference-only route in `specs/app-map.html`: `src/components/Tack.tsx` (onClick), `src/App.tsx` (clickTack, closeCard), `src/hooks/useClickOutside.ts` (useEffect cleanup). Not toured.
 Edit outcome: declined.
 Reflection: offered at hand-off; any answer belongs in the ignored profile.
 Activity mode: recap

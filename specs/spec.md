@@ -141,11 +141,11 @@ const tacks: Tack[] = [ /* 20+ entries, at least 5 per season */ ];
 Opening a different tack closes the previously locked one (a PRD assumption, kept).
 
 ## File Structure
-Created in the project root (`pack-test/`), next to `devpost/`.
+Created in the project root (`pack-test/`), next to `specs/`.
 
 ```
 pack-test/
-├── devpost/                  # Devpost learning workspace (docs)
+├── specs/                  # Planning docs (scope, PRD, spec, checklist)
 ├── public/
 │   └── images/               # downloaded pictures + canada-map image (sourced by hand)
 ├── src/

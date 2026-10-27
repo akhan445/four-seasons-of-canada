@@ -1,6 +1,6 @@
 # Image sources
 
-Pictures are from Wikimedia Commons, resized to 640px wide. Each keeps its own licence; check the linked page before publishing or sharing this project.
+Pictures are from Wikimedia Commons, resized to 640px wide. Each keeps its own licence. Photos are resized, and CC BY / CC BY-SA files require credit to the author, given on each linked Commons page; resized copies remain under the original licence.
 
 | File | Commons page | Licence |
 |---|---|---|
@@ -27,4 +27,4 @@ Pictures are from Wikimedia Commons, resized to 640px wide. Each keeps its own l
 | `arctic-fox.jpg` | https://commons.wikimedia.org/wiki/File:Vulpes_lagopus_in_Iceland.jpg | CC0 |
 | `winter-carnival.jpg` | https://commons.wikimedia.org/wiki/File:Bonhomme_Carnaval_2.jpg | CC0 |
 | `skiing.jpg` | https://commons.wikimedia.org/wiki/File:Sunshine_Village,_December_2004_15.jpg | CC BY-SA 4.0 |
-| `canada-map.svg` | https://commons.wikimedia.org/wiki/File:Canada_blank_map.svg | see page |
+| `canada-map.svg` | https://commons.wikimedia.org/wiki/File:Canada_blank_map.svg | Public domain |
