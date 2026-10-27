@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import SeasonButtons from './components/SeasonButtons'
 import IntroModal from './components/IntroModal'
 import SeasonDecor from './components/SeasonDecor'
+import MapBoard from './components/MapBoard'
 import type { Season } from './types'
 import { getCurrentSeason } from './lib/getCurrentSeason'
 
@@ -25,6 +26,7 @@ function App() {
           <SeasonButtons active={season} onSelect={setSeason} />
         </div>
       </header>
+      <MapBoard season={season} />
       {introOpen && <IntroModal onClose={() => setIntroOpen(false)} />}
     </>
   )

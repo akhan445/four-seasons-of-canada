@@ -61,6 +61,7 @@ body {
 .modal-backdrop {
   position: fixed;
   inset: 0;
+  z-index: 10;
   display: grid;
   place-items: center;
   background: rgba(0, 0, 0, 0.45);
@@ -90,4 +91,49 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/* Bulletin board: a cork frame around a paper sheet holding the map */
+.board {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, calc((100vh - 13rem) * 1.18));
+  margin: 0.5rem auto 1.5rem;
+  padding: 0.9rem;
+  background: #c79a64;
+  background-image: radial-gradient(rgba(120, 80, 40, 0.25) 1px, transparent 1.5px);
+  background-size: 7px 7px;
+  border: 10px solid #8a5a2e;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.map {
+  position: relative;
+  aspect-ratio: 1114 / 942;
+  background: #fffaf0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tacks {
+  position: absolute;
+  inset: 0;
+}
+
+.tack {
+  position: absolute;
+  width: 1.9rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* the pin point (bottom of the needle) sits on the map location */
+  transform: translate(-50%, -100%);
 }

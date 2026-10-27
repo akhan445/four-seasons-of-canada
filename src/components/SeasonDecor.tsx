@@ -71,12 +71,12 @@ const CROWN: [number, number, number][] = [
 const PINK = ['#f6b6c8', '#fff4f7', '#f6b6c8']
 const GREEN = ['#7fbf6a', '#5fa653', '#98d07f']
 
-// x = left edge in vw, h = height in vh; trees are spread across the page.
+// x = left edge in vw, h = height in vh. Trees stand in pairs at either side of the board.
 const TREES = [
-  { kind: 'pink', x: -8, h: 76, flip: false, delay: 0.8 },
-  { kind: 'green', x: 24, h: 68, flip: true, delay: 1.6 },
-  { kind: 'pink', x: 55, h: 78, flip: true, delay: 2.4 },
-  { kind: 'green', x: 82, h: 72, flip: false, delay: 3.2 },
+  { kind: 'pink', x: -9, h: 76, flip: false, delay: 0.8 },
+  { kind: 'green', x: 4, h: 68, flip: true, delay: 1.6 },
+  { kind: 'pink', x: 70, h: 78, flip: true, delay: 2.4 },
+  { kind: 'green', x: 83, h: 72, flip: false, delay: 3.2 },
 ]
 
 function Tree({ kind, x, h, flip, delay }: (typeof TREES)[number]) {

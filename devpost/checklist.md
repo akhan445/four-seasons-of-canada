@@ -29,7 +29,7 @@ Build mode: fast
   Learner check: Click through all four seasons and watch the background. Tell me which season feels closest to its picture book and which feels off.
   Commit: `Add animated decor for each season`
 
-- [ ] **3. The bulletin-board map of Canada appears with tacks pinned on it**
+- [x] **3. The bulletin-board map of Canada appears with tacks pinned on it**
   Becomes usable: A bulletin-board map of Canada with a first set of thumbtacks pinned at their locations for the current season, and different tacks per season. Tacks appear (no fly-in yet).
   Why now: The map and the tack data file are the foundation for hover cards and the fly-in. Sourcing the map image and judging tack positions is the biggest unknown, so it comes before the interactions that depend on it.
   PRD ref: `prd.md > Screens and Layout`, `prd.md > Thumbtack Pins and Fly-In Animation`
@@ -93,3 +93,4 @@ Activity mode: [live app and editor, explicit static fallback, focused alternati
 ## Revisions
 - Spring decor is grass instead of rain and wind; winter is slow rotating snowflakes; title is a small top-left logo with centered blurb and buttons; season colors are faded pastels — learner feedback at the early checkpoint after seeing the first version of slice 2.
 - Spring touch is now four standing trees (two pink blossoming, two green leafing) plus low dense grass; winter has no wind gusts, just slow straight-falling snowflakes — learner feedback on the early checkpoint. Build mode switched to fast after slice 2.
+- Slice 3 used the Wikimedia Commons "Canada blank map.svg" (public/images/canada-map.svg) as the map; trees in spring moved to pairs at either side of the board so the board doesn't hide them; intro pop-up got a z-index so the board can't cover it — discovered while verifying the board.
