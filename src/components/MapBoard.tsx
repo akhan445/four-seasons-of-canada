@@ -2,6 +2,7 @@ import { tacksForSeason } from '../data/seasons'
 import type { Season } from '../types'
 import Tack from './Tack'
 import TackCard from './TackCard'
+import { assetUrl } from '../lib/assetUrl'
 
 type Props = {
   season: Season
@@ -32,7 +33,7 @@ function MapBoard({
   return (
     <main className="board">
       <div className="map">
-        <img className="map-image" src="/images/canada-map.svg" alt="Map of Canada" />
+        <img className="map-image" src={assetUrl('/images/canada-map.svg')} alt="Map of Canada" />
         {/* key={season} replaces the tacks instantly when the season changes */}
         <div className="tacks" key={season}>
           {seasonTacks.map((t, i) => (

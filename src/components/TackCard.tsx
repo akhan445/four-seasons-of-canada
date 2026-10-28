@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import type { Tack } from '../types'
 import { useClickOutside } from '../hooks/useClickOutside'
 import PlaceholderArt from './PlaceholderArt'
+import { assetUrl } from '../lib/assetUrl'
 
 type Props = {
   tack: Tack
@@ -47,7 +48,7 @@ function TackCard({ tack, itemIndex, locked, onNext, onClose }: Props) {
         ) : (
           <img
             className="card-image"
-            src={item.image}
+            src={assetUrl(item.image)}
             alt={item.title}
             onError={() => setFailedImage(item.image)}
           />

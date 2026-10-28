@@ -2,6 +2,8 @@
 
 A small interactive page that teaches the four seasons through a bulletin-board map of Canada. Pick a season and the whole page transforms; thumbtacks fly onto the map, and hovering or clicking one shows what is unique to Canada in that season.
 
+**[Try the live demo →](https://akhan445.github.io/four-seasons-of-canada/)**
+
 | Spring | Summer |
 | :---: | :---: |
 | ![Spring](media/spring.gif) | ![Summer](media/summer.gif) |
