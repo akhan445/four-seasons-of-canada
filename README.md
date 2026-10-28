@@ -56,6 +56,10 @@ Open the address it prints (usually http://localhost:5173). Desktop browser with
 
 Built with React, TypeScript and Vite. Content lives in `src/data/seasons.ts`.
 
+## License
+
+The code is MIT licensed; see [LICENSE](LICENSE). The pictures and map keep their own licences (see Credits below).
+
 ## Credits
 
 Pictures and the map come from Wikimedia Commons; see [`public/images/SOURCES.md`](public/images/SOURCES.md) for each file's page and licence.
