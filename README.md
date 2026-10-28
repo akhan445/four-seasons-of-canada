@@ -41,7 +41,7 @@ The skills that drove this build are in [`.claude/skills/`](.claude/skills/). Th
 
 Their working folder is [`specs/`](specs/).
 
-Standalone skill pack repo: _link coming soon_
+Standalone skill pack repo: [scope-to-ship](https://github.com/akhan445/scope-to-ship)
 
 ## Run it
 
